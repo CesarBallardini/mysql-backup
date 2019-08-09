@@ -87,6 +87,6 @@ vagrant ssh
   1. `Vagrantfile.1` descarga box y crea una VM con Debian Buster
   2. `Vagrantfile.2` agrega un segundo disco en un subdirectorio ./tmp/
   3. `Vagrantfile.3` agrega un segundo disco en el mismo directorio que usa VB para la vm
-  4. `Vagrantfile' es el definitivo, agrega un sync folder `/vagrant/`
+  4. `Vagrantfile` es el definitivo, agrega un sync folder `/vagrant/`
 
 
