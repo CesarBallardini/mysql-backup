@@ -9,7 +9,7 @@ La estrategia es la siguiente:
 
 1. Instalamos un Debian 10 sobre dispositivos LVM
 
-2. El directorio `/var/lib/mysql/` reside en una unidad logica separada de `/`
+2. El directorio `/var/lib/mysql/` reside en una unidad lógica separada de `/`
 
 3. Instalamos MySQL 5.7
 
@@ -29,7 +29,8 @@ La estrategia es la siguiente:
 10. Eliminamos el snapshot.
 
 
-# Creacion del entorno de trabajo
+# Creación del entorno de trabajo
+
 
 * levantar VM
 
@@ -44,7 +45,7 @@ vagrant ssh
 ```
 
 
-* crear particion LVM para `/mnt/mysql`
+* crear partición LVM para `/mnt/mysql`
 
 ```bash
 /vagrant/provision/format-extra-disk.sh
@@ -61,7 +62,8 @@ vagrant ssh
 ```bash
 /vagrant/provision/respalda-mysql.sh
 ```
-* levvanta un `mysqld` sobre el snapshot para correr el `mysqldump`
+
+* levanta un `mysqld` sobre el snapshot para correr el `mysqldump`
 
 ```bash
 /vagrant/provision/mysqld-sobre-snapshot.sh
