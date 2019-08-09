@@ -3,9 +3,10 @@
 SNAPSHOT_NAME=snap_backup
 MYSQL_ROOT_PASSWORD=perico
 
-https://www.lullabot.com/articles/mysql-backups-using-lvm-snapshots
+# Ref:
+#  https://www.lullabot.com/articles/mysql-backups-using-lvm-snapshots
 
-TCP port diferente
+# El TCP port debe ser diferente
 MYSQL_PORT=$( mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" -sss -e "select @@port;" 2> /dev/null )
 # 3306 
 
@@ -14,14 +15,15 @@ mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" -sss -e 'SHOW VARIABLES LI
 # port	3306
 
 
-MySQL socket diferente
+# El MySQL socket debe ser diferente
 MYSQL_SOCKET=$( mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" -sss -e 'SHOW VARIABLES LIKE "socket";' 2> /dev/null | cut -f2 )
 #
 # socket	/var/run/mysqld/mysqld.sock
 
-El  --innodb-log-file-size must be identical to the primary MySQL instance,
+# El  --innodb-log-file-size must be identical to the primary MySQL instance,
 INNODB_SIZE=$( mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" -sss -e 'SHOW VARIABLES LIKE "%innodb_log_file_size%";' 2> /dev/null  | cut -f2 )
-innodb_log_file_size	50331648
+#
+# innodb_log_file_size	50331648
 
 sudo mysqld_safe \
 	--no-defaults \
