@@ -54,11 +54,9 @@ pushd /tmp
 [ -f "${PKG_NAME}" ] || wget http://repo.mysql.com/"${PKG_NAME}"
 md5sum --status --check <<<"${PKG_MD5SUM} *${PKG_NAME}"
 ret=$?
-popd
 [ $ret -eq 0 ] || exit 1
-
-
 sudo DEBIAN_FRONTEND=noninteractive dpkg -i "${PKG_NAME}"
+popd
 
 sudo apt-get -q update
 
